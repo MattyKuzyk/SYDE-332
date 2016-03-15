@@ -18,7 +18,7 @@ for (var i = 0; i <= 100; i++) {
 
 }
 
-while (!settled) {
+while (iterations.length < 10000) {
 	var i = Math.floor(Math.random() * (max - min + 1)) + min;
 	var j = Math.floor(Math.random() * (max - min + 1)) + min;
 	map[i][j] += 1
@@ -44,19 +44,19 @@ console.log(iterations)
 function updateNeighbours(i, j, queue) {
  	if (i < 99) {
  		map[i + 1][j] += 1
- 		queue.push([i+1,j])
+ 		queue.push([i + 1,j])
  	}
  	if (i > 0) {
- 		map[i + 1][j] += 1
- 		queue.push([i-1,j])
+ 		map[i - 1][j] += 1
+ 		queue.push([i - 1,j])
  	}
  	if (j < 99) {
  		map[i][j + 1] += 1
- 		queue.push([i-1,j])
+ 		queue.push([i,j + 1])
  	}
  	if (j > 0) {
  		map[i][j - 1] += 1
- 		queue.push([i-1,j])
+ 		queue.push([i,j - 1])
  	}
 
 }
