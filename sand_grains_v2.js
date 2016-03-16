@@ -1,3 +1,4 @@
+var _ = require('lodash')
 var map = []
 var q = []
 var max = 100
@@ -25,7 +26,7 @@ function scan() {
   return overflows
 }
 
-for (var iterations = 0; iterations < 200000; iterations++) {
+for (var iterations = 0; iterations < 20000; iterations++) {
   var overflows = scan()
   var current_overflows = overflows.length
   // Resolve all overflows
@@ -56,3 +57,4 @@ for (var iterations = 0; iterations < 200000; iterations++) {
 }
 
 console.log(q)
+console.log(_.max(q))
